@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
 import ModeSelector from "./ModeSelector";
+import baseURL from "../api";
 
 function Auth() {
 
@@ -17,7 +18,7 @@ function Auth() {
     async function handleLogin(event) {
         event.preventDefault();
 
-        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
+        const response = await fetch(`${baseURL}/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -48,7 +49,7 @@ function Auth() {
             return;
         }
 
-        const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/register`, {
+        const response = await fetch(`${baseURL}/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

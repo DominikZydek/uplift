@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useCookies } from 'react-cookie';
 import UpliftNote from './UpliftNote';
 import ModeSelector from './ModeSelector';
+import baseURL from '../api';
 
 function Home() {
 
@@ -14,7 +15,7 @@ function Home() {
 
     async function getNotes() {
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/notes/${username}`);
+            const response = await fetch(`${baseURL}/notes/${username}`);
             const data = await response.json();
             setNotes(data);
         } catch (err) {
@@ -24,7 +25,7 @@ function Home() {
 
     async function getFavourites() {
         try {
-            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/favourites/${username}`);
+            const response = await fetch(`${baseURL}/favourites/${username}`);
             const data = await response.json();
             setNotes(data);
         } catch (err) {

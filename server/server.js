@@ -7,13 +7,13 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
-const port = 8000;
+const port = 3001;
 
 app.use(express.json());
 app.use(cors());
 
 // get all notes
-app.get('/notes/:username', async (req, res) => {
+app.get('/api/v1/notes/:username', async (req, res) => {
     const username = req.params.username;
     
     try {
@@ -26,7 +26,7 @@ app.get('/notes/:username', async (req, res) => {
 });
 
 // get favourites
-app.get('/favourites/:username', async (req, res) => {
+app.get('/api/v1/favourites/:username', async (req, res) => {
     const username = req.params.username;
 
     try {
@@ -39,7 +39,7 @@ app.get('/favourites/:username', async (req, res) => {
 });
 
 // search for user
-app.get('/search/:username', async (req, res) => {
+app.get('/api/v1/search/:username', async (req, res) => {
     const username = req.params.username;
 
     try {
@@ -57,7 +57,7 @@ app.get('/search/:username', async (req, res) => {
 });
 
 // add note
-app.post('/uplift/:username', async (req, res) => {
+app.post('/api/v1/uplift/:username', async (req, res) => {
     const username = req.params.username;
     const { title, content } = req.body;
     console.log(username);
@@ -75,7 +75,7 @@ app.post('/uplift/:username', async (req, res) => {
 });
 
 // set favourite
-app.put('/favourite/:note_id', async (req, res) => {
+app.put('/api/v1/favourite/:note_id', async (req, res) => {
     const note_id = req.params.note_id;
     const { isFavourite } = req.body;
 
@@ -89,7 +89,7 @@ app.put('/favourite/:note_id', async (req, res) => {
 });
 
 // delete note
-app.delete('/delete/:note_id', async (req, res) => {
+app.delete('/api/v1/delete/:note_id', async (req, res) => {
     const note_id = req.params.note_id;
 
     try {
@@ -103,7 +103,7 @@ app.delete('/delete/:note_id', async (req, res) => {
 
 // register
 
-app.post('/register', async (req, res) => {
+app.post('/api/v1/register', async (req, res) => {
     const { username, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -125,7 +125,7 @@ app.post('/register', async (req, res) => {
 
 // login
 
-app.post('/login', async (req, res) => {
+app.post('/api/v1/login', async (req, res) => {
     const { username, password } = req.body;
     const isEmail = username.includes('@');
 

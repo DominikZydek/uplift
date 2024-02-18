@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import UpliftWindow from "./UpliftWindow";
+import baseURL from "../api";
 
 function Navbar() {
 
@@ -15,7 +16,7 @@ function Navbar() {
         const usernameToCheck = event.target.username.value;
 
         const result = await fetch(
-            `${process.env.REACT_APP_SERVER_URL}/search/${usernameToCheck}`
+            `${baseURL}/search/${usernameToCheck}`
         ).then((response) => response.json());
         if (result.message === "User not found") {
             setError(result.message);

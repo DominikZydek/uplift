@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import baseURL from '../api';
 
 function UpliftNote({ note }) {
 
@@ -12,7 +13,7 @@ function UpliftNote({ note }) {
     const [isFavourite, setIsFavourite] = useState(note.is_favourite);
 
     async function handleFavourite() {
-        const result = await fetch (`${process.env.REACT_APP_SERVER_URL}/favourite/${note.note_id}`, {
+        const result = await fetch (`${baseURL}/favourite/${note.note_id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +26,7 @@ function UpliftNote({ note }) {
     }
 
     async function handleDelete() {
-        const result = await fetch(`${process.env.REACT_APP_SERVER_URL}/delete/${note.note_id}`, {
+        const result = await fetch(`${baseURL}/delete/${note.note_id}`, {
             method: 'DELETE',
         }).then((response) => response.json());
     }

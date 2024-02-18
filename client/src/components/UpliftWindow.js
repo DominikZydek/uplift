@@ -1,3 +1,4 @@
+import baseURL from "../api";
 
 function UpliftWindow( {username, setShowUpliftWindow} ) {
 
@@ -6,7 +7,7 @@ function UpliftWindow( {username, setShowUpliftWindow} ) {
         const title = event.target[0].value;
         const content = event.target[1].value;
 
-        const result = await fetch(`${process.env.REACT_APP_SERVER_URL}/uplift/${username}`, {
+        const result = await fetch(`${baseURL}/uplift/${username}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
