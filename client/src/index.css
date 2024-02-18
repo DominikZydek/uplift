@@ -1,0 +1,474 @@
+body {
+    background-color: #f5daf8;
+    margin: 50px;
+    padding: 0;
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Navbar */
+
+.nav-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.nav-container nav {
+    width: 900px;
+    background-color: #b28cd6;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    position: relative;
+}
+
+.nav-container nav h1 {
+    color: #fff;
+    font-size: 32px;
+    margin: 0;
+}
+
+.nav-container nav h1 span {
+    color: #7e52a8;
+}
+
+.greeting {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.greeting h2 {
+    color: #fff;
+    font-size: 24px;
+    margin: 0;
+}
+
+.greeting h2 span {
+    color: #7e52a8;
+}
+
+.greeting button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #7e52a8;
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-container nav form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #f5daf8;
+}
+
+.search-button {
+    height: 32px;
+    width: 32px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.search-button svg {
+    fill: #fff;
+    width: 15px;
+    height: 15px;
+}
+
+.user-not-found { /* temporary */
+    font-size: 14px;
+    color: #7e52a8;
+    position: absolute;
+    right: 120px;
+    top: 52px;
+}
+
+/* ModeSelector */
+
+.mode-section {
+    width: 950px; /* same as grid */
+    display: flex;
+    gap: 10px;
+}
+
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    width: 325px;
+    height: 50px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+}
+
+.mode-buttons button {
+    width: 50%;
+    border: none;
+    background-color: #b28cd680;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.mode-buttons .active-mode {
+    background-color: #b28cd6;
+}
+
+/* Notes */
+
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.notes-grid { /* kinda weird */
+    width: 900px;
+    background-color: #b28cd6;
+    padding: 25px;
+    border-radius: 0 10px 10px 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-notes {
+    color: #fff;
+    width: 900px;
+    padding: 25px;
+    background-color: #b28cd6;
+    border-radius: 0 10px 10px 10px;
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+}
+
+.note-card {
+    background-color: #7e52a8;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    text-align: center;
+}
+
+.note-card h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #b28cd6;
+}
+
+.note-card p {
+    margin: 12.5px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.note-card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.note-card button {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.note-card .favourite-button svg, .note-card .delete-button svg {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+}
+
+/* Uplift window */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.uplift-window {
+    background-color: #b28cd6;
+    width: 500px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.uplift-window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.uplift-window-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+}
+
+.uplift-window-header h2 span {
+    color: #7e52a8;
+}
+
+.uplift-window-header button {
+    height: 32px;
+    width: 32px;
+    border: none;
+    background-color: transparent;
+    fill: #fff;
+    cursor: pointer;
+}
+
+.uplift-window form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.uplift-window form input {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: #f5daf8;
+}
+
+.uplift-window form textarea {
+    font-family: 'Open Sans', sans-serif;
+    height: 200px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: #f5daf8;
+}
+
+.uplift-window form button {
+    margin-top: 5px;
+    width: 100px;
+    align-self: flex-end;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #7e52a8;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Auth */
+
+.auth-section {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 100px);
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.auth-section h1 {
+    font-size: 36px;
+    margin: 0;
+    color: #7e52a8;
+    text-align: center;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.auth-container .form-container {
+    width: 290px;
+    padding: 30px 45px;
+    background-color: #b28cd6;
+    border-radius: 0 10px 10px 10px;
+}
+
+.auth-container .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-container .form-container form input {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    width: 250px;
+    background-color: #f5daf8;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-footer button {
+    width: 100px;
+    align-self: flex-end;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #7e52a8;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-footer .auth-error {
+    font-size: 16px;
+    color: #7e52a8;
+    margin: 0;
+}
+
+.auth-container .mode-section {
+    width: 380px;
+}
+
+.auth-container .mode-buttons {
+    height: 45px;
+    width: 175px;
+}
+
+.auth-container .mode-buttons button {
+    width: 50%;
+    font-size: 14px;
+}
+
+/* Footer */
+
+footer p {
+    text-align: center;
+    color: #7e52a8;
+    font-size: 14px;
+    margin: 0;
+    padding: 25px 0;
+}
+
+/* Media Queries */
+
+@media (max-width: 950px) {
+
+    /* Auth */
+
+    .auth-container .form-container {
+        width: 200px;
+    }
+
+    .auth-container .form-container form input {
+        width: auto;
+    }
+
+    .auth-container .mode-section {
+        width: 290px;
+    }
+
+    .auth-container .mode-buttons {
+        height: 40px;
+        width: 150px;
+    }
+
+    .auth-section h1 {
+        font-size: 24px;
+    }
+
+    /* Navbar */
+
+    .nav-container nav {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .greeting button{
+        position: absolute;
+        right: 25px;
+        top: 25px;
+        width: 70px;
+        padding: 5px 10px;
+        font-size: 12.5px;
+    }
+
+    .greeting h2 {
+        display: none;
+    }
+
+    .nav-container form input{
+        width: 125px;
+    }
+
+    .user-not-found {
+        top: 97px;
+        left: 37px;
+    }
+
+    /* Notes */
+
+
+    .notes-grid, .no-notes {
+        width: calc(100% - 50px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .note-card {
+        width: 175px;
+    }
+
+    .notes-container .mode-section {
+        width: 100%;
+    }
+
+    .notes-container .mode-buttons {
+        width: 200px;
+    }
+
+    .notes-container .mode-buttons button {
+        font-size: 14px;
+    }
+}
